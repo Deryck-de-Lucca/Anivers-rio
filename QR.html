@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QR Code Pix</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f9f9f9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #5c2d91;
+    }
+
+    .qrcode {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .amount {
+      font-size: 24px;
+      text-align: center;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .copy-btn {
+      display: block;
+      width: 100%;
+      background: #8a2be2;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 15px 0;
+    }
+
+    .copy-btn:hover {
+      background: #7326c5;
+    }
+
+    .info {
+      font-size: 15px;
+      line-height: 1.5;
+      color: #444;
+    }
+
+    .info b {
+      color: #000;
+    }
+
+    .pix-code {
+      word-break: break-all;
+      background: #eee;
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Use o QR Code do Pix para pagar</h2>
+    <p style="text-align: center;">Abra o app em que vai fazer a transferência, escaneie a imagem ou cole o código do QR Code</p>
+    <div class="qrcode">
+      <img src="qr.png" alt="QR Code Pix" style="width: 100%; max-width: 250px;" />
+    </div>
+    <div class="amount">R$ 0,00</div>
+    <button class="copy-btn" onclick="copyPixCode()">Copiar código do QR Code</button>
+
+    <div class="info">
+      <p><b>Chave Pix:</b> Chave Aleatória</p>
+      <p><b>Nome:</b> Maria Irineia Santos</p>
+      <p><b>CPF:</b> •••.775.788-••</p>
+      <p><b>Banco:</b> 260 - Nu Pagamentos S.A. - Instituição de Pagamento</p>
+      <p><b>Identificador:</b> eMjF861QWf</p>
+    </div>
+
+    <div class="pix-code" id="pixCode">
+      00020126580014BR.GOV.BCB.PIX013623ffcee8-2f04-4b28-8f82-09696c9558525204000053039865802BR5920Maria Irineia Santos6009SAO PAULO62140510eMjF861QWf630422E2
+    </div>
+  </div>
+
+  <script>
+    function copyPixCode() {
+      const text = document.getElementById('pixCode').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Código Pix copiado com sucesso!');
+      });
+    }
+  </script>
+</body>
+</html>
